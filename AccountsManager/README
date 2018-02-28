@@ -1,0 +1,7 @@
+frontend to manage students' files in a school's computer room.
+facilitated account management for students to enable login and access shared folder
+on a file server (running illegal windows 2000 server).
+student logs in and their shared folder is auto-mapped. 
+meant to replace the need for each student to have individual floppy disks
+to store their work. this was ~2005. floppies were still being used here around
+this time.
