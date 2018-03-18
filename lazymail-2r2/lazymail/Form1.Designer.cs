@@ -45,6 +45,7 @@
             this.iNDEXFILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROFILEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWPROFILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOSTPMAILERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sETTINGSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sEARCHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bYNAMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +69,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.mOSTPMAILERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cMenu1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -113,7 +113,7 @@
             // sbSource
             // 
             this.sbSource.Name = "sbSource";
-            this.sbSource.Size = new System.Drawing.Size(55, 17);
+            this.sbSource.Size = new System.Drawing.Size(42, 17);
             this.sbSource.Text = "source";
             // 
             // menuStrip1
@@ -143,14 +143,14 @@
             this.mOSTPMAILERToolStripMenuItem,
             this.sETTINGSToolStripMenuItem1});
             this.mnuUpdate.Name = "mnuUpdate";
-            this.mnuUpdate.Size = new System.Drawing.Size(51, 20);
+            this.mnuUpdate.Size = new System.Drawing.Size(40, 20);
             this.mnuUpdate.Text = "&FILE";
             // 
             // vIEWSCANToolStripMenuItem1
             // 
             this.vIEWSCANToolStripMenuItem1.Name = "vIEWSCANToolStripMenuItem1";
             this.vIEWSCANToolStripMenuItem1.ShortcutKeyDisplayString = "F2";
-            this.vIEWSCANToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.vIEWSCANToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.vIEWSCANToolStripMenuItem1.Text = "VIEW SCAN";
             // 
             // mAILERToolStripMenuItem1
@@ -158,7 +158,7 @@
             this.mAILERToolStripMenuItem1.Name = "mAILERToolStripMenuItem1";
             this.mAILERToolStripMenuItem1.ShortcutKeyDisplayString = "F3";
             this.mAILERToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mAILERToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.mAILERToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.mAILERToolStripMenuItem1.Text = "MAILER...";
             this.mAILERToolStripMenuItem1.Click += new System.EventHandler(this.mAILERToolStripMenuItem1_Click);
             // 
@@ -167,7 +167,7 @@
             this.qUICKEMAILToolStripMenuItem1.Name = "qUICKEMAILToolStripMenuItem1";
             this.qUICKEMAILToolStripMenuItem1.ShortcutKeyDisplayString = "F10";
             this.qUICKEMAILToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.qUICKEMAILToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.qUICKEMAILToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.qUICKEMAILToolStripMenuItem1.Text = "QUICK EMAIL...";
             this.qUICKEMAILToolStripMenuItem1.Click += new System.EventHandler(this.qUICKEMAILToolStripMenuItem1_Click);
             // 
@@ -176,7 +176,7 @@
             this.cOPYEMAILToolStripMenuItem1.Name = "cOPYEMAILToolStripMenuItem1";
             this.cOPYEMAILToolStripMenuItem1.ShortcutKeyDisplayString = "ALT+C";
             this.cOPYEMAILToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.cOPYEMAILToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.cOPYEMAILToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.cOPYEMAILToolStripMenuItem1.Text = "COPY EMAIL";
             this.cOPYEMAILToolStripMenuItem1.Click += new System.EventHandler(this.cOPYEMAILToolStripMenuItem1_Click);
             // 
@@ -185,7 +185,7 @@
             this.uPDATEToolStripMenuItem.Name = "uPDATEToolStripMenuItem";
             this.uPDATEToolStripMenuItem.ShortcutKeyDisplayString = "ALT+D";
             this.uPDATEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.uPDATEToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.uPDATEToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.uPDATEToolStripMenuItem.Text = "UPDATE PROFILE";
             this.uPDATEToolStripMenuItem.Click += new System.EventHandler(this.uPDATEToolStripMenuItem_Click);
             // 
@@ -193,7 +193,7 @@
             // 
             this.iNDEXFILEToolStripMenuItem.Name = "iNDEXFILEToolStripMenuItem";
             this.iNDEXFILEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.iNDEXFILEToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.iNDEXFILEToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.iNDEXFILEToolStripMenuItem.Text = "INDEX FILE";
             // 
             // pROFILEToolStripMenuItem1
@@ -201,7 +201,7 @@
             this.pROFILEToolStripMenuItem1.Name = "pROFILEToolStripMenuItem1";
             this.pROFILEToolStripMenuItem1.ShortcutKeyDisplayString = "ALT+V";
             this.pROFILEToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
-            this.pROFILEToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.pROFILEToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.pROFILEToolStripMenuItem1.Text = "VIEW PROFILE...";
             this.pROFILEToolStripMenuItem1.Click += new System.EventHandler(this.pROFILEToolStripMenuItem1_Click);
             // 
@@ -209,14 +209,21 @@
             // 
             this.nEWPROFILEToolStripMenuItem.Name = "nEWPROFILEToolStripMenuItem";
             this.nEWPROFILEToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.nEWPROFILEToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.nEWPROFILEToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.nEWPROFILEToolStripMenuItem.Text = "NEW PROFILE...";
             this.nEWPROFILEToolStripMenuItem.Click += new System.EventHandler(this.nEWPROFILEToolStripMenuItem_Click);
+            // 
+            // mOSTPMAILERToolStripMenuItem
+            // 
+            this.mOSTPMAILERToolStripMenuItem.Name = "mOSTPMAILERToolStripMenuItem";
+            this.mOSTPMAILERToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.mOSTPMAILERToolStripMenuItem.Text = "MOSTP MAILER";
+            this.mOSTPMAILERToolStripMenuItem.Click += new System.EventHandler(this.mOSTPMAILERToolStripMenuItem_Click);
             // 
             // sETTINGSToolStripMenuItem1
             // 
             this.sETTINGSToolStripMenuItem1.Name = "sETTINGSToolStripMenuItem1";
-            this.sETTINGSToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.sETTINGSToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.sETTINGSToolStripMenuItem1.Text = "SETTINGS...";
             this.sETTINGSToolStripMenuItem1.Click += new System.EventHandler(this.sETTINGSToolStripMenuItem1_Click);
             // 
@@ -226,7 +233,7 @@
             this.bYNAMEToolStripMenuItem,
             this.bYEMAILToolStripMenuItem});
             this.sEARCHToolStripMenuItem.Name = "sEARCHToolStripMenuItem";
-            this.sEARCHToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.sEARCHToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.sEARCHToolStripMenuItem.Text = "&SEARCH";
             // 
             // bYNAMEToolStripMenuItem
@@ -234,7 +241,7 @@
             this.bYNAMEToolStripMenuItem.Name = "bYNAMEToolStripMenuItem";
             this.bYNAMEToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+S";
             this.bYNAMEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.bYNAMEToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.bYNAMEToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.bYNAMEToolStripMenuItem.Text = "BY NAME";
             this.bYNAMEToolStripMenuItem.Click += new System.EventHandler(this.bYNAMEToolStripMenuItem_Click);
             // 
@@ -243,14 +250,14 @@
             this.bYEMAILToolStripMenuItem.Name = "bYEMAILToolStripMenuItem";
             this.bYEMAILToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+E";
             this.bYEMAILToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.bYEMAILToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.bYEMAILToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.bYEMAILToolStripMenuItem.Text = "BY EMAIL";
             this.bYEMAILToolStripMenuItem.Click += new System.EventHandler(this.bYEMAILToolStripMenuItem_Click);
             // 
             // aBOUTToolStripMenuItem
             // 
             this.aBOUTToolStripMenuItem.Name = "aBOUTToolStripMenuItem";
-            this.aBOUTToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.aBOUTToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.aBOUTToolStripMenuItem.Text = "ABOUT";
             this.aBOUTToolStripMenuItem.Click += new System.EventHandler(this.aBOUTToolStripMenuItem_Click);
             // 
@@ -258,7 +265,7 @@
             // 
             this.gRABEMAILToolStripMenuItem1.Name = "gRABEMAILToolStripMenuItem1";
             this.gRABEMAILToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.gRABEMAILToolStripMenuItem1.Size = new System.Drawing.Size(99, 20);
+            this.gRABEMAILToolStripMenuItem1.Size = new System.Drawing.Size(86, 20);
             this.gRABEMAILToolStripMenuItem1.Text = "GRAB EMAIL";
             this.gRABEMAILToolStripMenuItem1.Click += new System.EventHandler(this.gRABEMAILToolStripMenuItem1_Click);
             // 
@@ -356,6 +363,7 @@
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(359, 23);
             this.txtsearch.TabIndex = 3;
+            this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
             this.txtsearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtsearch_KeyDown);
             // 
             // lvstudents
@@ -410,13 +418,6 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "email";
-            // 
-            // mOSTPMAILERToolStripMenuItem
-            // 
-            this.mOSTPMAILERToolStripMenuItem.Name = "mOSTPMAILERToolStripMenuItem";
-            this.mOSTPMAILERToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
-            this.mOSTPMAILERToolStripMenuItem.Text = "MOSTP MAILER";
-            this.mOSTPMAILERToolStripMenuItem.Click += new System.EventHandler(this.mOSTPMAILERToolStripMenuItem_Click);
             // 
             // Form1
             // 

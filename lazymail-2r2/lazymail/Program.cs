@@ -14,6 +14,7 @@ namespace lazymail
 	static class Program
 	{
 		public enum DataSources {Access=1,MySQL=2};
+        public static int nc_index=0;
 		public static kartero k;
         public static qkartero qk;
 		public static string emaildb;
@@ -260,7 +261,7 @@ namespace lazymail
             Process p = new Process();
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p.StartInfo.FileName = Path.Combine(rootfolder, @"bin\wkhtmltopdf\bin", "wkhtmltopdf.exe");
-            p.StartInfo.Arguments = "-s letter " + enq(Path.Combine(rootfolder,"TEMPLATE","TMP.HTML"))  + " " +  opath;
+            p.StartInfo.Arguments = "--page-width 215.9 --page-height 139.7 " + enq(Path.Combine(rootfolder,"TEMPLATE","TMP.HTML"))  + " " +  opath;
             p.Start();
         }
 
@@ -379,7 +380,7 @@ namespace lazymail
 			try
 			{
 				Program.maindbCon = new OleDbConnection();
-				Program.maindbCon.ConnectionString = "Provider=Microsoft.jet.oledb.4.0; data source = " + Program.maindb;
+				Program.maindbCon.ConnectionString = "Provider=Microsoft.ACE.OleDB.12.0; data source = " + Program.maindb;
 				Program.maindbCon.Open();
 				Program.maindbCmd = Program.maindbCon.CreateCommand();
 			}

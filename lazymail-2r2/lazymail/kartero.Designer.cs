@@ -58,15 +58,16 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.sbcount = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lOGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvList
             // 
-            this.lvList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lvList.CheckBoxes = true;
             this.lvList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -84,10 +85,10 @@
             this.lvList.FullRowSelect = true;
             this.lvList.GridLines = true;
             this.lvList.HideSelection = false;
-            this.lvList.Location = new System.Drawing.Point(0, 31);
+            this.lvList.Location = new System.Drawing.Point(0, 27);
             this.lvList.MultiSelect = false;
             this.lvList.Name = "lvList";
-            this.lvList.Size = new System.Drawing.Size(985, 418);
+            this.lvList.Size = new System.Drawing.Size(750, 392);
             this.lvList.TabIndex = 0;
             this.lvList.UseCompatibleStateImageBehavior = false;
             this.lvList.View = System.Windows.Forms.View.Details;
@@ -96,44 +97,45 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 198;
+            this.columnHeader1.Width = 196;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "School";
-            this.columnHeader2.Width = 134;
+            this.columnHeader2.Width = 98;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Center";
-            this.columnHeader3.Width = 103;
+            this.columnHeader3.Width = 84;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Email";
-            this.columnHeader4.Width = 114;
+            this.columnHeader4.Width = 75;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "profile";
+            this.columnHeader8.Width = 33;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Qualified";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 50;
+            this.columnHeader5.Width = 31;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Dep Slip";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 52;
+            this.columnHeader6.Width = 36;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Noted";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 56;
+            this.columnHeader7.Width = 31;
             // 
             // columnHeader9
             // 
@@ -145,6 +147,7 @@
             // 
             this.columnHeader10.Text = "Size";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader10.Width = 48;
             // 
             // columnHeader11
             // 
@@ -162,10 +165,11 @@
             this.sENDSOMETHINGToolStripMenuItem,
             this.cHECKToolStripMenuItem,
             this.rEFRESHToolStripMenuItem,
-            this.pROFILEToolStripMenuItem});
+            this.pROFILEToolStripMenuItem,
+            this.lOGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(749, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -178,27 +182,27 @@
             this.sENDSOMETHINGToolStripMenuItem.Name = "sENDSOMETHINGToolStripMenuItem";
             this.sENDSOMETHINGToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.sENDSOMETHINGToolStripMenuItem.Text = "&SEND";
-            this.sENDSOMETHINGToolStripMenuItem.Click += new System.EventHandler(this.sENDSOMETHINGToolStripMenuItem_Click);
+           
             // 
             // rEGISTRATIONFORMToolStripMenuItem
             // 
             this.rEGISTRATIONFORMToolStripMenuItem.Name = "rEGISTRATIONFORMToolStripMenuItem";
             this.rEGISTRATIONFORMToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.rEGISTRATIONFORMToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.rEGISTRATIONFORMToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.rEGISTRATIONFORMToolStripMenuItem.Text = "REGISTRATION FORM";
             this.rEGISTRATIONFORMToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRATIONFORMToolStripMenuItem_Click);
             // 
             // mESSAGEToolStripMenuItem
             // 
             this.mESSAGEToolStripMenuItem.Name = "mESSAGEToolStripMenuItem";
-            this.mESSAGEToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mESSAGEToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.mESSAGEToolStripMenuItem.Text = "MESSAGE...";
             this.mESSAGEToolStripMenuItem.Click += new System.EventHandler(this.mESSAGEToolStripMenuItem_Click);
             // 
             // qUERYToolStripMenuItem
             // 
             this.qUERYToolStripMenuItem.Name = "qUERYToolStripMenuItem";
-            this.qUERYToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.qUERYToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.qUERYToolStripMenuItem.Text = "QUERY";
             this.qUERYToolStripMenuItem.Click += new System.EventHandler(this.qUERYToolStripMenuItem_Click);
             // 
@@ -282,9 +286,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sbcount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 452);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 426);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(749, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -298,11 +302,18 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // lOGToolStripMenuItem
+            // 
+            this.lOGToolStripMenuItem.Name = "lOGToolStripMenuItem";
+            this.lOGToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.lOGToolStripMenuItem.Text = "LOG";
+            this.lOGToolStripMenuItem.Click += new System.EventHandler(this.lOGToolStripMenuItem_Click);
+            // 
             // kartero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 474);
+            this.ClientSize = new System.Drawing.Size(749, 448);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.chkEmailed);
             this.Controls.Add(this.chkDepslip);
@@ -358,5 +369,6 @@
         private System.Windows.Forms.ToolStripMenuItem mESSAGEToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem qUERYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lOGToolStripMenuItem;
     }
 }

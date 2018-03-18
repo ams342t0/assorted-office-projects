@@ -307,7 +307,7 @@ namespace lazymail
 				if (!fileexists(Program.maindb))
 				{
 					ofd.Title = "MAIN ACCESS BACKEND";
-					ofd.Filter = "BACKEND DB | backend.mdb";
+					ofd.Filter = "Access Old|*.mdb|Access New|*.accdb";
 					if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 					{
 						Program.maindb = ofd.FileName;
@@ -530,6 +530,11 @@ namespace lazymail
         private void mOSTPMAILERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new qkartero().Show(this);
+        }
+
+        private void txtsearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
 	}
 

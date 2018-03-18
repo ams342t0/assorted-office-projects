@@ -20,7 +20,8 @@ namespace lazymail
     public partial class kartero : Form
     {
 		public delegate void filldelegate();
-        public NetworkCredential nc;
+        public NetworkCredential []nc;
+        public string[] uids;
         public string query_string;
         public string query_filter;
         public ListViewColumnSorter lcs;
@@ -37,7 +38,13 @@ namespace lazymail
         {
 			Program.k = this;
 
-            nc = new NetworkCredential(Program.userid,Program.password);
+            uids = Program.userid.Split(';');
+            nc = new NetworkCredential[uids.Length];
+
+            for(int i =0;i<uids.Length;i++)
+            {
+                nc[i] = new NetworkCredential(uids[i], Program.password);
+            }
 
             query_string = "select s.studid,s.fullname,s.ilevel,c.centername,s.school,s.s_email,s.email,s.is_qualified,s.is_emailed, " + 
                            "s.depslip,s.is_registered,s.haspicture,s.profilescan,is_noted,s.shirtsize from students as s inner join " +
@@ -289,12 +296,15 @@ namespace lazymail
 
                     msgs = (File.OpenText(Path.Combine(Program.rootfolder, @"TEMPLATE", "confirmERF.html"))).ReadToEnd();
                     msgs = msgs.Replace("nName",Program.getFirstName(l.Text));
-					messages[mi] = new MailMessage(Program.userid + "@gmail.com", l.SubItems[3].Text, "Electronic Reply Form of " + l.Text, msgs);
-                    messages[mi].From = new MailAddress(Program.userid + "@gmail.com", "MTGPHIL");
+					messages[mi] = new MailMessage(uids[Program.nc_index]+ "@gmail.com", l.SubItems[3].Text, "Electronic Reply Form of " + l.Text, msgs);
+                    messages[mi].From = new MailAddress(uids[Program.nc_index] + "@gmail.com", "MTGPHIL");
 					messages[mi].Attachments.Add(new Attachment(att_path));
                     messages[mi].IsBodyHtml = true;
                     messages[mi].BodyEncoding = ASCIIEncoding.Default;
-					cmailer c = new cmailer(nc);
+					cmailer c = new cmailer(nc[Program.nc_index]);
+                    Program.nc_index++;
+                    if (Program.nc_index == uids.Length)
+                        Program.nc_index = 0;
 					c.send(messages[mi],new dummyobject(l,2,mi));
 					mi++;
 				}
@@ -320,13 +330,16 @@ namespace lazymail
                         continue;
                     }
 
-                    msgs = (File.OpenText(Path.Combine(Program.rootfolder, @"TEMPLATE", "confirmERF.html"))).ReadToEnd();
+                    msgs = (File.OpenText(Path.Combine(Program.rootfolder, @"TEMPLATE", "sp_request.html"))).ReadToEnd();
                     msgs = msgs.Replace("nName", Program.getFirstName(l.Text));
-                    messages[mi] = new MailMessage(Program.userid + "@gmail.com", l.SubItems[3].Text, "Schedule of training of " + l.Text, msgs);
-                    messages[mi].From = new MailAddress(Program.userid + "@gmail.com", "MTGPHIL");
+                    messages[mi] = new MailMessage(uids[Program.nc_index] + "@gmail.com", l.SubItems[3].Text, "REQUEST TO RE-SEND SCANNED DOCUMENTS OF " + l.Text, msgs);
+                    messages[mi].From = new MailAddress(uids[Program.nc_index] + "@gmail.com", "MTGPHIL");
                     messages[mi].IsBodyHtml = true;
                     messages[mi].BodyEncoding = ASCIIEncoding.Default;
-                    cmailer c = new cmailer(nc);
+                    cmailer c = new cmailer(nc[Program.nc_index]);
+                    Program.nc_index++;
+                    if (Program.nc_index == uids.Length)
+                        Program.nc_index = 0;
                     c.send(messages[mi], new dummyobject(l, 2, mi));
                     mi++;
                 }
@@ -544,9 +557,9 @@ namespace lazymail
                 send_QUERY();
         }
 
-        private void sENDSOMETHINGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lOGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Microsoft.VisualBasic.Interaction.Shell("explorer.exe send.log", Microsoft.VisualBasic.AppWinStyle.NormalFocus, false);
         }
     }
 
@@ -588,7 +601,7 @@ namespace lazymail
 			}
 			catch (SmtpException sx)
 			{
-				i.lvi.SubItems[8].Text = "Can't send: " + sx.Message;
+				i.lvi.SubItems[8].Text = sx.Message;
 			}
 		}
 
@@ -596,49 +609,70 @@ namespace lazymail
 
 		private static void client_SendCompleted(object o, AsyncCompletedEventArgs s)
 		{
+            StreamWriter w;
+            string log_datetime;
+            string src_addr;
 			long id = ((dummyobject)s.UserState).id;
 			int flag = ((dummyobject)s.UserState).flag;
 			ListViewItem li = ((dummyobject)s.UserState).lvi;
-			if (s.Error != null)
-				li.SubItems[8].Text = "Sending failed: " +  s.Error.Message + ", " + s.Error.ToString();
-			else
-			{
-				switch (flag)
-				{
-					case 1:
-						if (Program.dataSource == Program.DataSources.Access)
-						{
-							Program.setcmd(ref Program.maindbCmd, "update students set is_noted = -1 where studid = " + id.ToString());
-							Program.runcmd(Program.maindbCmd);
-						}
-						else
-						{
-							Program.setcmd(ref Program.OmaindbCmd, "update students set is_noted = -1 where studid = " + id.ToString());
-							Program.runcmd(Program.OmaindbCmd);
-						}
-						break;
 
-					case 2:
-						if (Program.dataSource == Program.DataSources.Access)
-						{
-							Program.setcmd(ref Program.maindbCmd, "update students set is_emailed = -1,is_noted=-1 where studid = " + id.ToString());
-							Program.runcmd(Program.maindbCmd);
-						}
-						else
-						{
-							Program.setcmd(ref Program.OmaindbCmd, "update students set is_emailed = -1,is_noted=-1 where studid = " + id.ToString());
-							Program.runcmd(Program.OmaindbCmd);
-						}
-						break;
+            log_datetime = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            src_addr = kartero.messages[((dummyobject)s.UserState).msg_id].To.ToString();
+            w = File.AppendText("send.log");
 
-					default:
-						break;
-				}
-				li.SubItems[8].Text = "OK";
-				li.Checked = false;
-			}
+            if (s.Error != null)
+            {
+                li.SubItems[8].Text = "Fail: " + s.Error.Message + ", " + s.Error.ToString();
+                w.WriteLine("{0}: {3} ({1}), State:{2}", log_datetime,src_addr, s.Error.ToString(),li.Text);
+            }
+            else
+            {
+                if (!s.Cancelled)
+                {
+                    switch (flag)
+                    {
+                        case 1:
+                            if (Program.dataSource == Program.DataSources.Access)
+                            {
+                                Program.setcmd(ref Program.maindbCmd, "update students set is_noted = -1 where studid = " + id.ToString());
+                                Program.runcmd(Program.maindbCmd);
+                            }
+                            else
+                            {
+                                Program.setcmd(ref Program.OmaindbCmd, "update students set is_noted = -1 where studid = " + id.ToString());
+                                Program.runcmd(Program.OmaindbCmd);
+                            }
+                            break;
+
+                        case 2:
+                            if (Program.dataSource == Program.DataSources.Access)
+                            {
+                                Program.setcmd(ref Program.maindbCmd, "update students set is_emailed = -1,is_noted=-1 where studid = " + id.ToString());
+                                Program.runcmd(Program.maindbCmd);
+                            }
+                            else
+                            {
+                                Program.setcmd(ref Program.OmaindbCmd, "update students set is_emailed = -1,is_noted=-1 where studid = " + id.ToString());
+                                Program.runcmd(Program.OmaindbCmd);
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                    li.SubItems[8].Text = "OK";
+                    li.Checked = false;
+                    w.WriteLine("{0} : {3} ({1}), State: {2}", log_datetime, src_addr, "OK",li.Text);
+                }
+                else
+                {
+                    li.SubItems[8].Text = "Cancelled";
+                    w.WriteLine("{0} : {3} ({1}), State: {2}", log_datetime, src_addr, "CANCELLED", li.Text);
+                }
+            }
 			((SmtpClient)o).Dispose();
-			kartero.messages[((dummyobject)s.UserState).msg_id].Dispose();						
+			kartero.messages[((dummyobject)s.UserState).msg_id].Dispose();
+            w.Close();
 		}
     }
 

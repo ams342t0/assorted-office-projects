@@ -253,7 +253,7 @@ namespace lazymail
 								 "is_qualified = " + chktol(chkQualified.Checked).ToString() + "," +
 								 "depslip = " + chktol(chkDepSlip.Checked).ToString() + "," +
 								 "is_emailed = " + chktol(chkEmailed.Checked).ToString() + "," +
-                                 "email = " + q(DateTime.Now.ToString()) +
+                                 "ts = " + q(DateTime.Now.ToString()) +
 								 " WHERE studid = " + sid.ToString();
 			try
 			{
@@ -291,7 +291,7 @@ namespace lazymail
 								 "is_qualified = " + chktol(chkQualified.Checked).ToString() + "," +
 								 "depslip = " + chktol(chkDepSlip.Checked).ToString() + "," +
 								 "is_emailed = " + chktol(chkEmailed.Checked).ToString() + "," +
-                                 "email = " + q(DateTime.Now.ToString()) + 
+                                 "ts = " + q(DateTime.Now.ToString()) + 
 								 " WHERE studid = " + sid.ToString();
 			try
 			{

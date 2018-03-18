@@ -63,7 +63,7 @@
             this.label2.Location = new System.Drawing.Point(4, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 13;
+            this.label2.TabIndex = 14;
             this.label2.Text = "Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -73,7 +73,7 @@
             this.label3.Location = new System.Drawing.Point(14, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 14;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Sex";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -83,7 +83,7 @@
             this.label4.Location = new System.Drawing.Point(8, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 15;
+            this.label4.TabIndex = 17;
             this.label4.Text = "Level";
             // 
             // label5
@@ -102,7 +102,7 @@
             this.label6.Location = new System.Drawing.Point(1, 143);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 17;
+            this.label6.TabIndex = 18;
             this.label6.Text = "Center";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -151,7 +151,7 @@
             this.txtShirtSize.Location = new System.Drawing.Point(163, 54);
             this.txtShirtSize.Name = "txtShirtSize";
             this.txtShirtSize.Size = new System.Drawing.Size(48, 21);
-            this.txtShirtSize.TabIndex = 8;
+            this.txtShirtSize.TabIndex = 2;
             // 
             // txtEmail1
             // 
@@ -160,7 +160,7 @@
             this.txtEmail1.Location = new System.Drawing.Point(44, 197);
             this.txtEmail1.Name = "txtEmail1";
             this.txtEmail1.Size = new System.Drawing.Size(341, 21);
-            this.txtEmail1.TabIndex = 7;
+            this.txtEmail1.TabIndex = 8;
             // 
             // cbSex
             // 
@@ -181,7 +181,7 @@
             this.cbLevel.Location = new System.Drawing.Point(44, 110);
             this.cbLevel.Name = "cbLevel";
             this.cbLevel.Size = new System.Drawing.Size(135, 23);
-            this.cbLevel.TabIndex = 3;
+            this.cbLevel.TabIndex = 4;
             this.cbLevel.Enter += new System.EventHandler(this.cbLevel_Enter);
             // 
             // cbCenter
@@ -192,7 +192,7 @@
             this.cbCenter.Location = new System.Drawing.Point(44, 139);
             this.cbCenter.Name = "cbCenter";
             this.cbCenter.Size = new System.Drawing.Size(341, 23);
-            this.cbCenter.TabIndex = 4;
+            this.cbCenter.TabIndex = 5;
             this.cbCenter.SelectedIndexChanged += new System.EventHandler(this.cbCenter_SelectedIndexChanged);
             this.cbCenter.Enter += new System.EventHandler(this.cbCenter_Enter);
             // 
@@ -203,7 +203,7 @@
             this.chkQualified.Location = new System.Drawing.Point(17, 228);
             this.chkQualified.Name = "chkQualified";
             this.chkQualified.Size = new System.Drawing.Size(31, 17);
-            this.chkQualified.TabIndex = 9;
+            this.chkQualified.TabIndex = 11;
             this.chkQualified.Text = "&Q";
             this.chkQualified.UseVisualStyleBackColor = true;
             // 
@@ -214,7 +214,7 @@
             this.chkDepSlip.Location = new System.Drawing.Point(57, 228);
             this.chkDepSlip.Name = "chkDepSlip";
             this.chkDepSlip.Size = new System.Drawing.Size(38, 17);
-            this.chkDepSlip.TabIndex = 10;
+            this.chkDepSlip.TabIndex = 12;
             this.chkDepSlip.Text = "D&S";
             this.chkDepSlip.UseVisualStyleBackColor = true;
             // 
@@ -225,7 +225,7 @@
             this.chkEmailed.Location = new System.Drawing.Point(104, 228);
             this.chkEmailed.Name = "chkEmailed";
             this.chkEmailed.Size = new System.Drawing.Size(30, 17);
-            this.chkEmailed.TabIndex = 11;
+            this.chkEmailed.TabIndex = 13;
             this.chkEmailed.Text = "&E";
             this.chkEmailed.UseVisualStyleBackColor = true;
             // 
@@ -259,7 +259,7 @@
             this.cbSchedule.Location = new System.Drawing.Point(44, 168);
             this.cbSchedule.Name = "cbSchedule";
             this.cbSchedule.Size = new System.Drawing.Size(200, 23);
-            this.cbSchedule.TabIndex = 5;
+            this.cbSchedule.TabIndex = 6;
             // 
             // txtRemark
             // 
@@ -268,7 +268,7 @@
             this.txtRemark.Location = new System.Drawing.Point(250, 170);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(135, 21);
-            this.txtRemark.TabIndex = 6;
+            this.txtRemark.TabIndex = 7;
             // 
             // menuStrip1
             // 
@@ -296,7 +296,7 @@
             this.txtSchool.Location = new System.Drawing.Point(44, 81);
             this.txtSchool.Name = "txtSchool";
             this.txtSchool.Size = new System.Drawing.Size(341, 23);
-            this.txtSchool.TabIndex = 2;
+            this.txtSchool.TabIndex = 3;
             // 
             // profileX
             // 
@@ -332,7 +332,7 @@
             this.MaximizeBox = false;
             this.Name = "profileX";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUICK ADD";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_FormClosed);
             this.Load += new System.EventHandler(this.profile_Load);

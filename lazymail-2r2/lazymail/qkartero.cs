@@ -38,7 +38,6 @@ namespace lazymail
 			Program.qk = this;
 
             nc = new NetworkCredential(Program.q_userid,Program.q_password);
-
             query_string = "select s.studid,s.fullname,s.ilevel,c.centername,s.school,s.s_email,s.is_qualified, " + 
                            "s.result from students as s inner join " +
                            "centers as c on s.center=c.centerid";
