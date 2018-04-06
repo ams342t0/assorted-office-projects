@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Microsoft.Office;
@@ -9,6 +8,7 @@ namespace qEdit
 {
     static class Program
     {
+        public static Boolean isnew;
         public static string excel_file;
         public static Microsoft.Office.Interop.Excel.Workbook  book;
         public static Microsoft.Office.Interop.Excel.Worksheet sheet;

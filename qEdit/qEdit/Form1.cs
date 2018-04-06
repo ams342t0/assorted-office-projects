@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office;
@@ -13,7 +12,7 @@ namespace qEdit
 {
     public partial class qEdit : Form
     {
-        bool isnew;
+        long xnew = 0;
 
         public qEdit()
         {
@@ -31,27 +30,16 @@ namespace qEdit
                 Program.book = Program.excelapp.Workbooks.Open(Program.excel_file);
                 Program.book.BeforeClose +=new Microsoft.Office.Interop.Excel.WorkbookEvents_BeforeCloseEventHandler(book_BeforeClose);
                 Program.sheet = Program.book.Worksheets[1];
-                Program.sheet.Change += new Microsoft.Office.Interop.Excel.DocEvents_ChangeEventHandler(sheet_Change);
                 load_sheets();
                 init_controls(true);
                 Program.excelapp.Visible = true;
             }
         }
 
-        void sheet_Change(Microsoft.Office.Interop.Excel.Range target)
-        {
-            //MessageBox.Show("Source was externally modified. Reload source to synchronize.");
-        }
-
         void book_BeforeClose(ref bool cancel)
         {
-            if (MessageBox.Show("Source workbook is being closed. Continue?", "CLOSING SOURCE", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == System.Windows.Forms.DialogResult.Yes)
-            {
-                cancel = false;
-                init_controls(false);
-            }
-            else
-                cancel = true;
+            MessageBox.Show("Shouldn't close source while frontend is still open.","WARNING!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            cancel = true;
         }
 
         void load_sheets()
@@ -78,14 +66,16 @@ namespace qEdit
         }
 
 
+
         void get_columnheads()
         {
             cbColumn.Items.Clear();
             cbColumn.Text = "";
             AutoCompleteStringCollection nac;
+            List<string> ts;
+            Program.all_cells = new List<List<string>>();
             Program.start_row = (long)lStartRow.Value;
             Program.col_values = new List<AutoCompleteStringCollection>();
-            Program.all_cells = new List<List<string>>();
             Program.col_index = new List<long>();
             for (int c = 1; c <= 50; c++)
             {
@@ -97,14 +87,13 @@ namespace qEdit
                         cbColumn.Items.Add(i);
                         Program.col_index.Add(c);
                         nac = new AutoCompleteStringCollection();
-                        List<string> ts = new List<string>();
+                        ts = new List<string>();
                         fill_col_values(ref nac,ref ts,c);
-                        Program.col_values.Add(nac);
                         Program.all_cells.Add(ts);
+                        Program.col_values.Add(nac);
                     }
                 }
             }
-            isnew = false;
             if (cbColumn.Items.Count > 0)
                 cbColumn.SelectedIndex = 0;
         }
@@ -127,20 +116,19 @@ namespace qEdit
             
             status.Items[0].Text = "Preparing lookup values...";
             ac.Clear();
-            s.Clear();
+
+            for (int n = 0; n < 1000; n++)
+                s.Add("");
+
 
             for(long k=(long)lStartRow.Value+1;k<= lastrow;k++)
             {
                 if (Program.sheet.Cells[k, c].Value != null)
                 {
                     v = Program.sheet.Cells[k, c].Value.ToString();
-                    s.Add(v);
+                    s[(int)(k-Program.start_row-1)] = v;
                     if (!ac.Contains(v) && v.Length > 0)
                         ac.Add(v);
-                }
-                else
-                {
-                    s.Add("");
                 }
             }
         }
@@ -174,7 +162,6 @@ namespace qEdit
         private void cbColumn_SelectedIndexChanged(object sender, EventArgs e)
         {
             Program.column = Program.col_index[cbColumn.SelectedIndex];
-            isnew = false;
             cbValue.Focus();
             show_status();
             cbValue.AutoCompleteCustomSource = Program.col_values[cbColumn.SelectedIndex];
@@ -183,12 +170,12 @@ namespace qEdit
 
         private void iNSERTToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            isnew = true;
             Program.row = get_lastrow();
             if (cbColumn.Items.Count > 0)
             {
                 cbColumn.SelectedIndex = 0;
             }
+            xnew = 1;
             show_status();
             cbValue.Text = (Program.row - 1).ToString();
             cbValue.SelectAll();
@@ -197,13 +184,13 @@ namespace qEdit
 
         private void sAVEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Proceed saving?","SAVE",MessageBoxButtons.YesNo)== System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("SAVE?","SAVE SOURCE",MessageBoxButtons.YesNo)== System.Windows.Forms.DialogResult.Yes)
                     Program.book.Save();
         }
 
         private void fOCUSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!isnew)
+            if (xnew == 0)
                 new Form2().ShowDialog(this);
         }
 
@@ -221,7 +208,7 @@ namespace qEdit
                 if (cbColumn.Items.Count > 0)
                     cbColumn.SelectedIndex = 0;
             }
-            isnew = false;
+            xnew = 0;
             show_status();
         }
 
@@ -230,8 +217,8 @@ namespace qEdit
             Program.row = get_lastrow() - 1;
             if (cbColumn.Items.Count > 0)
                 cbColumn.SelectedIndex = 0;
+            xnew = 0;
             show_status();
-            isnew = false;
         }
 
         private void fIRSTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,8 +226,8 @@ namespace qEdit
             Program.row = (long)lStartRow.Value + 1;
             if (cbColumn.Items.Count > 0)
                 cbColumn.SelectedIndex = 0;
+            xnew = 0;
             show_status();
-            isnew = false;
         }
 
         private void dOWNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,53 +239,20 @@ namespace qEdit
                     cbColumn.SelectedIndex = 0;
 
             }
-            isnew = false;
+            xnew = 0;
             show_status();
         }
 
-        private void cbValue_KeyDown(object sender, KeyEventArgs e)
+        public void init_controls(bool enabled)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    if (isnew)
-                    {
-                        long l;
-                        l = Program.all_cells[0].Count;
-                        Program.all_cells.Add(new List<string>());
-                        for (int k = 0; k < l; k++)
-                            Program.all_cells[Program.all_cells.Count-1].Add("");
-                    }
-
-                    if (!Program.col_values[cbColumn.SelectedIndex].Contains(cbValue.Text))
-                        Program.col_values[cbColumn.SelectedIndex].Add(cbValue.Text);
-
-                    Program.all_cells[cbColumn.SelectedIndex][(int)Program.row - 2] = cbValue.Text;
-                    Program.set_cell(cbValue.Text.ToUpper(),Program.row,Program.column);
-                    
-                    if (cbColumn.SelectedIndex < cbColumn.Items.Count - 1)
-                        cbColumn.SelectedIndex++;
-                    isnew = false;
-                    break;
-
-                case Keys.Escape:
-                    cbValue.Text = Program.get_cell(Program.row,Program.column);
-                    break;
-            }
-
-        }
-
-
-        void init_controls(bool enabled)
-        {
-            menuStrip1.Items["inserttoolstripmenuitem1"].Enabled = enabled;
-            menuStrip1.Items["uptoolstripmenuitem"].Enabled = enabled;
-            menuStrip1.Items["downtoolstripmenuitem"].Enabled = enabled;
-            menuStrip1.Items["firsttoolstripmenuitem"].Enabled = enabled;
-            menuStrip1.Items["bottomtoolstripmenuitem"].Enabled = enabled;
-            sEARCHToolStripMenuItem.Enabled = enabled;
-            sAVEToolStripMenuItem.Enabled = enabled;
-            fOCUSToolStripMenuItem.Enabled = enabled;
+            mInsert.Enabled = enabled;
+            mUp.Enabled = enabled;
+            mDown.Enabled = enabled;
+            mTop.Enabled = enabled;
+            mBottom.Enabled = enabled;
+            mSearch.Enabled = enabled;
+            mSave.Enabled = enabled;
+            mView.Enabled = enabled;
             cbSheet.Enabled = enabled;
             cbColumn.Enabled = enabled;
             cbValue.Enabled = enabled;
@@ -319,6 +273,28 @@ namespace qEdit
             {
                 
             }
+        }
+
+        private void cbValue_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                save_row();
+
+            if (e.KeyCode == Keys.Escape)
+                cbValue.Text = Program.get_cell(Program.row, Program.column);
+        }
+
+        void save_row()
+        {
+            if (!Program.col_values[cbColumn.SelectedIndex].Contains(cbValue.Text))
+                Program.col_values[cbColumn.SelectedIndex].Add(cbValue.Text);
+
+            Program.all_cells[cbColumn.SelectedIndex][(int)Program.row - 2] = cbValue.Text;
+            Program.set_cell(cbValue.Text.ToUpper(), Program.row, Program.column);
+
+            if (cbColumn.SelectedIndex < cbColumn.Items.Count - 1)
+                cbColumn.SelectedIndex++;
+            xnew = 0;
         }
     }
 

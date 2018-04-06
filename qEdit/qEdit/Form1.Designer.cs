@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sOURCEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sAVEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fOCUSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sEARCHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iNSERTToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dOWNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fIRSTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bOTTOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.mUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mDown = new System.Windows.Forms.ToolStripMenuItem();
+            this.mTop = new System.Windows.Forms.ToolStripMenuItem();
+            this.mBottom = new System.Windows.Forms.ToolStripMenuItem();
             this.status = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.cbSheet = new System.Windows.Forms.ComboBox();
@@ -62,109 +62,108 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fILEToolStripMenuItem,
-            this.sEARCHToolStripMenuItem,
-            this.iNSERTToolStripMenuItem1,
-            this.uPToolStripMenuItem,
-            this.dOWNToolStripMenuItem,
-            this.fIRSTToolStripMenuItem,
-            this.bOTTOMToolStripMenuItem});
+            this.mFile,
+            this.mSearch,
+            this.mInsert,
+            this.mUp,
+            this.mDown,
+            this.mTop,
+            this.mBottom});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(446, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(386, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fILEToolStripMenuItem
+            // mFile
             // 
-            this.fILEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sOURCEToolStripMenuItem,
-            this.sAVEToolStripMenuItem,
-            this.fOCUSToolStripMenuItem,
-            this.eXITToolStripMenuItem});
-            this.fILEToolStripMenuItem.Name = "fILEToolStripMenuItem";
-            this.fILEToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.fILEToolStripMenuItem.Text = "FILE";
+            this.mFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mOpen,
+            this.mSave,
+            this.mView,
+            this.mExit});
+            this.mFile.Name = "mFile";
+            this.mFile.Size = new System.Drawing.Size(40, 20);
+            this.mFile.Text = "FILE";
             // 
-            // sOURCEToolStripMenuItem
+            // mOpen
             // 
-            this.sOURCEToolStripMenuItem.Name = "sOURCEToolStripMenuItem";
-            this.sOURCEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.sOURCEToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.sOURCEToolStripMenuItem.Text = "OPEN SOURCE...";
-            this.sOURCEToolStripMenuItem.Click += new System.EventHandler(this.sOURCEToolStripMenuItem_Click);
+            this.mOpen.Name = "mOpen";
+            this.mOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mOpen.Size = new System.Drawing.Size(204, 22);
+            this.mOpen.Text = "OPEN SOURCE...";
+            this.mOpen.Click += new System.EventHandler(this.sOURCEToolStripMenuItem_Click);
             // 
-            // sAVEToolStripMenuItem
+            // mSave
             // 
-            this.sAVEToolStripMenuItem.Name = "sAVEToolStripMenuItem";
-            this.sAVEToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.sAVEToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.sAVEToolStripMenuItem.Text = "SAVE";
-            this.sAVEToolStripMenuItem.Click += new System.EventHandler(this.sAVEToolStripMenuItem_Click);
+            this.mSave.Name = "mSave";
+            this.mSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mSave.Size = new System.Drawing.Size(204, 22);
+            this.mSave.Text = "SAVE";
+            this.mSave.Click += new System.EventHandler(this.sAVEToolStripMenuItem_Click);
             // 
-            // fOCUSToolStripMenuItem
+            // mView
             // 
-            this.fOCUSToolStripMenuItem.Name = "fOCUSToolStripMenuItem";
-            this.fOCUSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
-            this.fOCUSToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.fOCUSToolStripMenuItem.Text = "VIEW SOURCE";
-            this.fOCUSToolStripMenuItem.Click += new System.EventHandler(this.fOCUSToolStripMenuItem_Click);
+            this.mView.Name = "mView";
+            this.mView.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
+            this.mView.Size = new System.Drawing.Size(204, 22);
+            this.mView.Text = "VIEW SOURCE";
+            this.mView.Click += new System.EventHandler(this.fOCUSToolStripMenuItem_Click);
             // 
-            // eXITToolStripMenuItem
+            // mExit
             // 
-            this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.eXITToolStripMenuItem.Text = "EXIT";
-            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
+            this.mExit.Name = "mExit";
+            this.mExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.mExit.Size = new System.Drawing.Size(204, 22);
+            this.mExit.Text = "EXIT";
+            this.mExit.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
-            // sEARCHToolStripMenuItem
+            // mSearch
             // 
-            this.sEARCHToolStripMenuItem.Name = "sEARCHToolStripMenuItem";
-            this.sEARCHToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.sEARCHToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.sEARCHToolStripMenuItem.Text = "&SEARCH";
-            this.sEARCHToolStripMenuItem.Click += new System.EventHandler(this.sEARCHToolStripMenuItem_Click);
+            this.mSearch.Name = "mSearch";
+            this.mSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+            this.mSearch.Size = new System.Drawing.Size(63, 20);
+            this.mSearch.Text = "&SEARCH";
+            this.mSearch.Click += new System.EventHandler(this.sEARCHToolStripMenuItem_Click);
             // 
-            // iNSERTToolStripMenuItem1
+            // mInsert
             // 
-            this.iNSERTToolStripMenuItem1.Name = "iNSERTToolStripMenuItem1";
-            this.iNSERTToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-            this.iNSERTToolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
-            this.iNSERTToolStripMenuItem1.Text = "&INSERT";
-            this.iNSERTToolStripMenuItem1.Click += new System.EventHandler(this.iNSERTToolStripMenuItem1_Click);
+            this.mInsert.Name = "mInsert";
+            this.mInsert.Size = new System.Drawing.Size(57, 20);
+            this.mInsert.Text = "&INSERT";
+            this.mInsert.Click += new System.EventHandler(this.iNSERTToolStripMenuItem1_Click);
             // 
-            // uPToolStripMenuItem
+            // mUp
             // 
-            this.uPToolStripMenuItem.Name = "uPToolStripMenuItem";
-            this.uPToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.U)));
-            this.uPToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
-            this.uPToolStripMenuItem.Text = "&UP";
-            this.uPToolStripMenuItem.Click += new System.EventHandler(this.uPToolStripMenuItem_Click);
+            this.mUp.Name = "mUp";
+            this.mUp.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.mUp.Size = new System.Drawing.Size(34, 20);
+            this.mUp.Text = "&UP";
+            this.mUp.Click += new System.EventHandler(this.uPToolStripMenuItem_Click);
             // 
-            // dOWNToolStripMenuItem
+            // mDown
             // 
-            this.dOWNToolStripMenuItem.Name = "dOWNToolStripMenuItem";
-            this.dOWNToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.dOWNToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.dOWNToolStripMenuItem.Text = "&DOWN";
-            this.dOWNToolStripMenuItem.Click += new System.EventHandler(this.dOWNToolStripMenuItem_Click);
+            this.mDown.Name = "mDown";
+            this.mDown.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.mDown.Size = new System.Drawing.Size(56, 20);
+            this.mDown.Text = "D&OWN";
+            this.mDown.Click += new System.EventHandler(this.dOWNToolStripMenuItem_Click);
             // 
-            // fIRSTToolStripMenuItem
+            // mTop
             // 
-            this.fIRSTToolStripMenuItem.Name = "fIRSTToolStripMenuItem";
-            this.fIRSTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
-            this.fIRSTToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
-            this.fIRSTToolStripMenuItem.Text = "&TOP";
-            this.fIRSTToolStripMenuItem.Click += new System.EventHandler(this.fIRSTToolStripMenuItem_Click);
+            this.mTop.Name = "mTop";
+            this.mTop.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mTop.Size = new System.Drawing.Size(42, 20);
+            this.mTop.Text = "&TOP";
+            this.mTop.Click += new System.EventHandler(this.fIRSTToolStripMenuItem_Click);
             // 
-            // bOTTOMToolStripMenuItem
+            // mBottom
             // 
-            this.bOTTOMToolStripMenuItem.Name = "bOTTOMToolStripMenuItem";
-            this.bOTTOMToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
-            this.bOTTOMToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.bOTTOMToolStripMenuItem.Text = "&BOTTOM";
-            this.bOTTOMToolStripMenuItem.Click += new System.EventHandler(this.bOTTOMToolStripMenuItem_Click);
+            this.mBottom.Name = "mBottom";
+            this.mBottom.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.mBottom.Size = new System.Drawing.Size(69, 20);
+            this.mBottom.Text = "&BOTTOM";
+            this.mBottom.Click += new System.EventHandler(this.bOTTOMToolStripMenuItem_Click);
             // 
             // status
             // 
@@ -172,7 +171,7 @@
             this.toolStripStatusLabel1});
             this.status.Location = new System.Drawing.Point(0, 144);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(446, 22);
+            this.status.Size = new System.Drawing.Size(386, 22);
             this.status.TabIndex = 1;
             this.status.Text = "statusStrip1";
             // 
@@ -189,7 +188,7 @@
             this.cbSheet.FormattingEnabled = true;
             this.cbSheet.Location = new System.Drawing.Point(89, 55);
             this.cbSheet.Name = "cbSheet";
-            this.cbSheet.Size = new System.Drawing.Size(345, 26);
+            this.cbSheet.Size = new System.Drawing.Size(285, 26);
             this.cbSheet.TabIndex = 2;
             this.cbSheet.SelectedIndexChanged += new System.EventHandler(this.cbSheet_SelectedIndexChanged);
             // 
@@ -201,7 +200,7 @@
             this.cbColumn.FormattingEnabled = true;
             this.cbColumn.Location = new System.Drawing.Point(89, 82);
             this.cbColumn.Name = "cbColumn";
-            this.cbColumn.Size = new System.Drawing.Size(345, 26);
+            this.cbColumn.Size = new System.Drawing.Size(285, 26);
             this.cbColumn.TabIndex = 3;
             this.cbColumn.SelectedIndexChanged += new System.EventHandler(this.cbColumn_SelectedIndexChanged);
             // 
@@ -213,9 +212,9 @@
             this.cbValue.FormattingEnabled = true;
             this.cbValue.Location = new System.Drawing.Point(89, 109);
             this.cbValue.Name = "cbValue";
-            this.cbValue.Size = new System.Drawing.Size(345, 26);
+            this.cbValue.Size = new System.Drawing.Size(285, 26);
             this.cbValue.TabIndex = 4;
-            this.cbValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbValue_KeyDown);
+            this.cbValue.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.cbValue_PreviewKeyDown);
             // 
             // label1
             // 
@@ -299,7 +298,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 166);
+            this.ClientSize = new System.Drawing.Size(386, 166);
             this.Controls.Add(this.lStartColumn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lStartRow);
@@ -333,9 +332,9 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fILEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sOURCEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mFile;
+        private System.Windows.Forms.ToolStripMenuItem mOpen;
+        private System.Windows.Forms.ToolStripMenuItem mExit;
         private System.Windows.Forms.StatusStrip status;
         private System.Windows.Forms.ComboBox cbSheet;
         private System.Windows.Forms.ComboBox cbColumn;
@@ -343,20 +342,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripMenuItem fOCUSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mView;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown lStartRow;
         private System.Windows.Forms.NumericUpDown lStartColumn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem iNSERTToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem fIRSTToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dOWNToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bOTTOMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sAVEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sEARCHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mInsert;
+        private System.Windows.Forms.ToolStripMenuItem mTop;
+        private System.Windows.Forms.ToolStripMenuItem mUp;
+        private System.Windows.Forms.ToolStripMenuItem mDown;
+        private System.Windows.Forms.ToolStripMenuItem mBottom;
+        private System.Windows.Forms.ToolStripMenuItem mSave;
+        private System.Windows.Forms.ToolStripMenuItem mSearch;
     }
 }
 
