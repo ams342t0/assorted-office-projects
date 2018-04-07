@@ -68,6 +68,8 @@
             this.txtQPW = new System.Windows.Forms.TextBox();
             this.txtQID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbODBCDriver = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +77,7 @@
             // 
             // txtEmailDB
             // 
-            this.txtEmailDB.Location = new System.Drawing.Point(67, 230);
+            this.txtEmailDB.Location = new System.Drawing.Point(67, 250);
             this.txtEmailDB.Name = "txtEmailDB";
             this.txtEmailDB.Size = new System.Drawing.Size(239, 20);
             this.txtEmailDB.TabIndex = 3;
@@ -83,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 235);
+            this.label1.Location = new System.Drawing.Point(11, 255);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 1;
@@ -112,7 +114,7 @@
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(16, 257);
+            this.groupBox1.Location = new System.Drawing.Point(16, 277);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(229, 101);
             this.groupBox1.TabIndex = 6;
@@ -163,7 +165,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(341, 364);
+            this.button2.Location = new System.Drawing.Point(341, 384);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -173,7 +175,7 @@
             // 
             // browseEmailDB
             // 
-            this.browseEmailDB.Location = new System.Drawing.Point(312, 228);
+            this.browseEmailDB.Location = new System.Drawing.Point(312, 248);
             this.browseEmailDB.Name = "browseEmailDB";
             this.browseEmailDB.Size = new System.Drawing.Size(49, 23);
             this.browseEmailDB.TabIndex = 4;
@@ -183,7 +185,7 @@
             // 
             // purgeEmailDB
             // 
-            this.purgeEmailDB.Location = new System.Drawing.Point(367, 228);
+            this.purgeEmailDB.Location = new System.Drawing.Point(367, 248);
             this.purgeEmailDB.Name = "purgeEmailDB";
             this.purgeEmailDB.Size = new System.Drawing.Size(49, 23);
             this.purgeEmailDB.TabIndex = 5;
@@ -203,14 +205,14 @@
             // 
             // txtHost
             // 
-            this.txtHost.Location = new System.Drawing.Point(67, 273);
+            this.txtHost.Location = new System.Drawing.Point(67, 293);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(168, 20);
             this.txtHost.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(249, 364);
+            this.button1.Location = new System.Drawing.Point(249, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -224,6 +226,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbODBCDriver);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.cmdTest);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtDBDB);
@@ -240,7 +244,7 @@
             this.groupBox2.Controls.Add(this.txtMainDB);
             this.groupBox2.Location = new System.Drawing.Point(14, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(402, 183);
+            this.groupBox2.Size = new System.Drawing.Size(402, 202);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Backend Data Source";
@@ -370,7 +374,7 @@
             // 
             // txtQHost
             // 
-            this.txtQHost.Location = new System.Drawing.Point(287, 273);
+            this.txtQHost.Location = new System.Drawing.Point(287, 293);
             this.txtQHost.Name = "txtQHost";
             this.txtQHost.Size = new System.Drawing.Size(168, 20);
             this.txtQHost.TabIndex = 11;
@@ -382,7 +386,7 @@
             this.groupBox3.Controls.Add(this.txtQPW);
             this.groupBox3.Controls.Add(this.txtQID);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Location = new System.Drawing.Point(248, 257);
+            this.groupBox3.Location = new System.Drawing.Point(248, 277);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(215, 101);
             this.groupBox3.TabIndex = 10;
@@ -431,11 +435,28 @@
             this.label13.TabIndex = 17;
             this.label13.Text = "Host";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 180);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Driver";
+            // 
+            // cbODBCDriver
+            // 
+            this.cbODBCDriver.FormattingEnabled = true;
+            this.cbODBCDriver.Location = new System.Drawing.Point(71, 175);
+            this.cbODBCDriver.Name = "cbODBCDriver";
+            this.cbODBCDriver.Size = new System.Drawing.Size(238, 21);
+            this.cbODBCDriver.TabIndex = 20;
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 392);
+            this.ClientSize = new System.Drawing.Size(470, 415);
             this.Controls.Add(this.txtQHost);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -509,5 +530,7 @@
         private System.Windows.Forms.TextBox txtQPW;
         private System.Windows.Forms.TextBox txtQID;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbODBCDriver;
 	}
 }

@@ -239,7 +239,7 @@ namespace lazymail
 		void doupdateOLEDB()
 		{
 			dbcmd = Program.maindbCon.CreateCommand();
-			dbcmd.CommandText = "UPDATE STUDENTS set fullname = " + q(txtName.Text) + "," +
+			dbcmd.CommandText = "UPDATE students set fullname = " + q(txtName.Text) + "," +
 								 "sex = " + cb_value(cbSex) + "," +
 								 "ilevel = " + cb_value(cbLevel) + "," +
 								 "school = " + q(txtSchool.Text) + "," +
@@ -264,7 +264,7 @@ namespace lazymail
 				{
 					Program.createbarcode(sid);
 					MessageBox.Show(Program.createprofile_OLEDB(sid, true));
-					dbcmd.CommandText = "UPDATE STUDENTS SET is_emailed = 0 where studid = " + sid.ToString();
+					dbcmd.CommandText = "UPDATE students SET is_emailed = 0 where studid = " + sid.ToString();
 					dbcmd.ExecuteNonQuery();
 				}
 			}
@@ -277,7 +277,7 @@ namespace lazymail
 		void doupdateODBC()
 		{
 			Odbcmd = Program.OmaindbCon.CreateCommand();
-			Odbcmd.CommandText = "UPDATE STUDENTS set fullname = " + q(txtName.Text) + "," +
+			Odbcmd.CommandText = "UPDATE students set fullname = " + q(txtName.Text) + "," +
 								 "sex = " + cb_value(cbSex) + "," +
 								 "ilevel = " + cb_value(cbLevel) + "," +
 								 "school = " + q(txtSchool.Text) + "," +
@@ -302,7 +302,7 @@ namespace lazymail
 				{
 					Program.createbarcode(sid);
 					MessageBox.Show(Program.createprofile_ODBC(sid, true));
-					Odbcmd.CommandText = "UPDATE STUDENTS SET is_emailed = 0 where studid = " + sid.ToString();
+					Odbcmd.CommandText = "UPDATE students SET is_emailed = 0 where studid = " + sid.ToString();
 					Odbcmd.ExecuteNonQuery();
 				}
 			}
@@ -332,14 +332,14 @@ namespace lazymail
 			{
 				MessageBox.Show(Program.createprofile_OLEDB(sid, true));
 				dbcmd = Program.maindbCon.CreateCommand();
-				dbcmd.CommandText = "UPDATE STUDENTS SET is_emailed = 0 where studid = " + sid.ToString();
+				dbcmd.CommandText = "UPDATE students SET is_emailed = 0 where studid = " + sid.ToString();
 				dbcmd.ExecuteNonQuery();
 			}
 			else
 			{
 				MessageBox.Show(Program.createprofile_ODBC(sid, true));
 				Odbcmd = Program.OmaindbCon.CreateCommand();
-				Odbcmd.CommandText = "UPDATE STUDENTS SET is_emailed = 0 where studid = " + sid.ToString();
+				Odbcmd.CommandText = "UPDATE students SET is_emailed = 0 where studid = " + sid.ToString();
 				Odbcmd.ExecuteNonQuery();
 			}
 		}

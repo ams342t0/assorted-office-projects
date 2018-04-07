@@ -23,6 +23,7 @@ namespace lazymail
         public static string host;
 		public static string userid;
 		public static string password;
+        public static string dbdriver;
 
         public static string q_host;
         public static string q_userid;
@@ -75,6 +76,7 @@ namespace lazymail
 			host = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("host", (string)"googlemail.com");
 			userid = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("userid", (string)"mtg2015inhouse");
 			password = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("password", (string)"inhouse2015");
+            dbdriver = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("dbdriver", (string)"MySQL ODBC 5.1 Driver");
 
             q_host = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("qhost", (string)"googlemail.com");
             q_userid = (string)Registry.CurrentUser.CreateSubKey("lzm2", RegistryKeyPermissionCheck.ReadWriteSubTree).GetValue("quserid", (string)"confirmation.mostp@mtgphil.org");
@@ -104,7 +106,7 @@ namespace lazymail
             Registry.CurrentUser.OpenSubKey("lzm2", true).SetValue("qhost", (string)Program.q_host);
             Registry.CurrentUser.OpenSubKey("lzm2", true).SetValue("quserid", (string)Program.q_userid);
             Registry.CurrentUser.OpenSubKey("lzm2", true).SetValue("qpassword", (string)Program.q_password);
-
+            Registry.CurrentUser.OpenSubKey("lzm2", true).SetValue("dbdriver", (string)Program.dbdriver);
 		}
 
 		public static bool getBool(OleDbDataReader dr, string cn)
@@ -415,24 +417,13 @@ namespace lazymail
 			try
 			{
 				Program.OmaindbCon = new OdbcConnection();
-				Program.OmaindbCon.ConnectionString = "Driver=MySQL ODBC 5.1 Driver;server=" + Program.ds_Host + "; database=" + Program.ds_DB + ";uid=" + Program.ds_Uid + ";pwd=" + Program.ds_Pwd;
+				Program.OmaindbCon.ConnectionString = "Driver=" + Program.dbdriver + ";server=" + Program.ds_Host + "; database=" + Program.ds_DB + ";uid=" + Program.ds_Uid + ";pwd=" + Program.ds_Pwd;
 				Program.OmaindbCon.Open();
 				Program.OmaindbCmd = Program.OmaindbCon.CreateCommand();
 			}
-			catch (Exception ex2)
+			catch (Exception ex)
 			{
-				try
-				{
-					Program.OmaindbCon = new OdbcConnection();
-					Program.OmaindbCon.ConnectionString = "Driver=MySQL ODBC 5.2a Driver;server=" + Program.ds_Host + "; database=" + Program.ds_DB + ";uid=" + Program.ds_Uid + "; pwd=" + Program.ds_Pwd;
-					Program.OmaindbCon.Open();
-					Program.OmaindbCmd = Program.OmaindbCon.CreateCommand();
-				}
-				catch (Exception ex2a)
-				{
-					MessageBox.Show(ex2a.Message);
-					return false;
-				}
+				MessageBox.Show(ex.Message);
 				return false;
 			}
 			return true;

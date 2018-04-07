@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace lazymail
 {
@@ -30,6 +31,18 @@ namespace lazymail
 			txtDBPwd.Text = Program.ds_Pwd;
 			txtDBDB.Text = Program.ds_DB;
 
+            RegistryKey k = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers");
+
+            cbODBCDriver.Items.Clear();
+
+            foreach (string ks in k.GetValueNames())
+            {
+                if (ks.ToUpper().Contains("MYSQL"))
+                     cbODBCDriver.Items.Add(ks);
+            }
+
+            cbODBCDriver.Text = Program.dbdriver;
+
             txtQHost.Text = Program.q_host;
             txtQID.Text = Program.q_userid;
             txtQPW.Text = Program.q_password;
@@ -38,6 +51,8 @@ namespace lazymail
 				chkAccess.Checked = true;
 			else
 				chkMySQL.Checked = true;
+
+            
 			toggle_ds();
 		}
 
@@ -56,6 +71,7 @@ namespace lazymail
             Program.q_host = txtQHost.Text;
             Program.q_userid = txtQID.Text;
             Program.q_password = txtQPW.Text;
+            Program.dbdriver = cbODBCDriver.Text;
 
 			if (chkAccess.Checked)
 				Program.dataSource = Program.DataSources.Access;

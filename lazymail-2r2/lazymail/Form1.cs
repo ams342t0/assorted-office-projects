@@ -38,7 +38,8 @@ namespace lazymail
 			lvcs = new ListViewColumnSorter();
 			lvcs.Order = SortOrder.None;
 			lvcs.SortColumn = 0;
-			Program.pv = new picview();
+
+			//Program.pv = new picview();
 		}
 
 		private void Form1_Shown(object sender, EventArgs e)
@@ -535,6 +536,11 @@ namespace lazymail
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cONNECTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadglobals();
         }
 	}
 

@@ -332,7 +332,7 @@
             this.MaximizeBox = false;
             this.Name = "profileX";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QUICK ADD";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_FormClosed);
             this.Load += new System.EventHandler(this.profile_Load);

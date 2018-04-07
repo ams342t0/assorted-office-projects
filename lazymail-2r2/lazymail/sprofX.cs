@@ -404,7 +404,7 @@ namespace lazymail
 		{
             sid = getNewID();
 			dbcmd = Program.maindbCon.CreateCommand();
-            dbcmd.CommandText = "INSERT INTO STUDENTS (studid,fullname,sex,ilevel,school,center,shirtsize,schedule,s_email,is_qualified,depslip,remarks,is_emailed,ts) VALUES (" +
+            dbcmd.CommandText = "INSERT INTO students (studid,fullname,sex,ilevel,school,center,shirtsize,schedule,s_email,is_qualified,depslip,remarks,is_emailed,ts) VALUES (" +
                                  sid.ToString() + "," +
                                  q(txtName.Text.ToUpper()) + "," +
                                  cb_value(cbSex) + "," +
@@ -436,7 +436,7 @@ namespace lazymail
 		{
             sid = getNewID();
 			Odbcmd = Program.OmaindbCon.CreateCommand();
-            Odbcmd.CommandText = "INSERT INTO STUDENTS (studid,fullname,sex,ilevel,school,center,shirtsize,schedule,s_email,is_qualified,depslip,remarks,is_emailed,ts) VALUES (" +
+            Odbcmd.CommandText = "INSERT INTO students (studid,fullname,sex,ilevel,school,center,shirtsize,schedule,s_email,is_qualified,depslip,remarks,is_emailed,ts) VALUES (" +
                                  sid.ToString() + "," +
                                  q(txtName.Text.ToUpper()) + "," +
                                  cb_value(cbSex) + "," +
