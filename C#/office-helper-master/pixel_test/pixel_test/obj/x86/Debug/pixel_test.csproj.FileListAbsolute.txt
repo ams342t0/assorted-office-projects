@@ -1,0 +1,15 @@
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\sudoku_helper.exe
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\sudoku_helper.pdb
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.Imaging.dll
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.dll
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.Math.dll
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.Imaging.xml
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.xml
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\bin\Debug\AForge.Math.xml
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\pixel_test.Form1.resources
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\sudoku_helper.Properties.Resources.resources
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\sudoku_helper.exe
+D:\Documents\Visual Studio 2010\Projects\pixel_test\pixel_test\obj\x86\Debug\sudoku_helper.pdb
